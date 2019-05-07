@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ServicesProvider.LoginPage"
+             Title="Log in">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout VerticalOptions="Start"
+                             BackgroundColor="#4b7bec"
+                             Padding="15">
+                    <Label Text="On Your Service"
+                           TextColor="#fff" FontSize="22"
+                           VerticalTextAlignment="Center"
+                           HorizontalOptions="CenterAndExpand"></Label>
+                </StackLayout>
+
+                <StackLayout Margin="20,20,20,0"
+                             VerticalOptions="StartAndExpand"
+                             HorizontalOptions="FillAndExpand">
+                    
+                    <Entry Placeholder="Enter your Username"
+                           Text=""
+                           FontSize="13"
+                           TextColor="Black"
+                           Opacity="0.8"
+                           x:Name="userName"/>
+                    <Label Text=""
+                               HorizontalTextAlignment="Center"
+                               HorizontalOptions="Center"
+                            TextColor="Red"
+                           x:Name="usererror"
+                           FontSize="Micro"
+                           />
+                    <Entry Placeholder="Enter your Password"
+                           Text=""
+                           FontSize="13"
+                           TextColor="Black"
+                           Opacity="0.8"
+                           IsPassword="True"
+                           x:Name="password"/>
+                    <Label Text=""
+                          FontSize="Micro"
+                               HorizontalTextAlignment="Center"
+                               HorizontalOptions="Center"
+                           TextColor="Red"
+                           x:Name="passworderror"
+                           />
+
+                    <Button Text="Log In"
+                            TextColor="#fff"
+                            BackgroundColor="#4cd137"
+                            Margin="0,20,0,0"
+                            Command="" Clicked="Button_Clicked"/>
+                    <!--<Label Text="Forgot password?"
+                           TextColor="#00a8ff"
+                           HorizontalOptions="CenterAndExpand"
+                           Margin="0,10,0,0"/>-->
+                    <Label Text="Or log in with"
+                           HorizontalOptions="CenterAndExpand"
+                           Margin="0,30,0,0"/>
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="0,30,0,0">
+                        <Button Text="Google"
+                                TextColor="#fff"
+                                Image="ggicon.png"
+                                BackgroundColor="#45aaf2"
+                                HorizontalOptions="FillAndExpand"/>
+                        <Button Text="Facebook"
+                                TextColor="#fff"
+                                Image="fbicon.png"
+                                BackgroundColor="#a55eea"
+                                HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout BackgroundColor="#d1d8e0">
+                    <StackLayout Orientation="Horizontal"
+                                 VerticalOptions="End"
+                                 HorizontalOptions="CenterAndExpand"
+                                 BackgroundColor="#d1d8e0"
+                                 Padding="10">
+                        <Label Text="Don't have Oys account?"
+                               HorizontalTextAlignment="Center"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Register now"
+                               TextColor="#4b7bec"
+                               HorizontalTextAlignment="Center"
+                               HorizontalOptions="CenterAndExpand"
+                              x:Name="lblRegister"
+                               >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command=""/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

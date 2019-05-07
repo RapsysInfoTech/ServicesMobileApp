@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:bh="clr-namespace:ServicesProvider.Behaviors"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             x:Class="ServicesProvider.Register"
+             Title="Create your Account!">
+    <ContentPage.Content>
+        <ScrollView x:Name="scroll">
+            <StackLayout VerticalOptions="FillAndExpand">
+
+            <Frame HasShadow="True"
+                   Margin="10">
+                <StackLayout>
+                    <Label Text="Full Name"
+                           FontSize="12"
+                           Margin="30,0,0,0"/>
+                        
+                    <Entry Text=""
+                           FontSize="13"
+                           TextColor="Black"
+                           Opacity="0.8"
+                           Margin="30,0,30,0"
+                           x:Name="fullname"
+                           >
+                        
+                    </Entry>
+                        <Label Text=""
+                           FontSize="9"
+                                   Margin="35,0,30,0"
+                                   TextColor="Red"
+                               x:Name="fullNameError"
+                          />
+                    
+                        <Label Text="Address"
+                           FontSize="12"
+                           Margin="30,0,0,0"
+                           />
+                        <Entry Text=""
+                           FontSize="13"
+                           TextColor="Black"
+                           Opacity="0.8"
+                           Margin="30,0,30,0"
+                                x:Name="address">
+                    </Entry>
+                        <Label Text=""
+                           FontSize="9"
+                                   Margin="35,0,30,0"
+                                   TextColor="Red"
+                               x:Name="addressError"
+                          />
+
+                        <Label Text="Phone Number"
+                           FontSize="12"
+                           Margin="30,0,0,0"/>
+                    <Entry Text=""
+                           FontSize="13"
+                           TextColor="Black"
+                           Opacity="0.8"
+                           Margin="30,0,30,0" x:Name="phonenumer">
+                        
+                    </Entry>
+                        <Label Text=""
+                           FontSize="9"
+                                   Margin="35,0,30,0"
+                                   TextColor="Red"
+                               x:Name="phoneNumberError"
+                          />
+
+
+                        <Label Text="Gender"
+                           FontSize="12"
+                           Margin="30,0,0,0"/>
+                    <StackLayout Margin="30,0,0,0">
+                        <input:RadioButtonGroupView  >
+                                <input:RadioButton x:Name="male" Text="Male" TextFontSize="12" Value="Male" IsChecked="True" Clicked="Female_Clicked" />
+                                <input:RadioButton x:Name="female" Text="Female" TextFontSize="12" Value="Female" Clicked="Female_Clicked"  />
+                        </input:RadioButtonGroupView>
+                    </StackLayout>
+
+
+                        <Label Text="Email"
+                           FontSize="12"
+                           Margin="30,0,0,0"/>
+                    <Entry Text=""
+                           FontSize="13"
+                           TextColor="Black"
+                           Opacity="0.8"
+                           Margin="30,0,30,0"
+                           x:Name="email">
+                       
+                    </Entry>
+                        <Label Text=""
+                           FontSize="9"
+                                   Margin="35,0,30,0"
+                                   TextColor="Red"
+                               x:Name="emailError"
+                          />
+
+                        <Label Text="Password"
+                           FontSize="12"
+                           Margin="30,0,0,0"/>
+                    <Entry Text=""
+                           FontSize="13"
+                           TextColor="Black"
+                           Opacity="0.8"
+                           Margin="30,0,30,0"
+                           IsPassword="True"
+                           x:Name="password">
+    
+                    </Entry>
+                        <Label Text=""
+                           FontSize="9"
+                                   Margin="35,0,30,0"
+                                   TextColor="Red"
+                               x:Name="passwordError"
+                          />
+
+                        <Label Text="Confirm password"
+                           FontSize="12"
+                           Margin="30,0,0,0"/>
+                    <Entry Text=""
+                           FontSize="13"
+                           TextColor="Black"
+                           Opacity="0.8"
+                           Margin="30,0,30,0"
+                           IsPassword="True"
+                           x:Name="confirm">
+
+                    </Entry>
+                        <Label Text=""
+                           FontSize="9"
+                                   Margin="35,0,30,0"
+                                   TextColor="Red"
+                               x:Name="confirmError"
+                          />
+                    </StackLayout>
+            </Frame>
+            <Button Text="Continue" Margin="10"
+                    BackgroundColor="#3498db"
+                    TextColor="#fff"
+                    Command=""
+                    Clicked="Button_Clicked"/>
+        </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>
