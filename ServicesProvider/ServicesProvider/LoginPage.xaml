@@ -5,7 +5,16 @@
              Title="Log in">
     <ContentPage.Content>
         <ScrollView>
+            
             <StackLayout>
+               
+                    <ActivityIndicator
+                         x:Name="spinner"
+                           IsRunning="true"
+                    IsVisible="False"
+                           Color="Red" />
+               
+
                 <StackLayout VerticalOptions="Start"
                              BackgroundColor="#4b7bec"
                              Padding="15">

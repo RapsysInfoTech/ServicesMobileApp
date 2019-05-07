@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ServicesProvider.AccountDetails"
+            Title="Account Details"
+            >
+  <!--Pages can be added as references or inline-->
+    <!--<ContentPage Title="All Information"  >
+        
+        
+    </ContentPage>-->
+    <ContentPage Title="Change Password" >
+        <StackLayout Margin="5,5,5,5" VerticalOptions="FillAndExpand">
+            <ActivityIndicator
+                         x:Name="passwordspinner"
+                           IsRunning="true"
+                    IsVisible="False"
+                           Color="Red" />
+            <Label Text="New Password"
+                           FontSize="12"
+                           Margin="30,0,0,0"
+                           />
+            <Entry Text=""
+                           FontSize="13"
+                           TextColor="Black"
+                           Opacity="0.8"
+                           Margin="30,0,30,0"
+                                x:Name="Password">
+            </Entry>
+            <Label Text=""
+                           FontSize="9"
+                                   Margin="35,0,30,0"
+                                   TextColor="Red"
+                               x:Name="Passworderror"
+                          />
+            <Button Text="Continue" Margin="10"
+                    BackgroundColor="#3498db"
+                    TextColor="#fff"
+                    Command=""
+                    Clicked="password_Clicked"/>
+        </StackLayout>
+        
+    </ContentPage>
+    <ContentPage Title="Change Email" >
+        <StackLayout Margin="5,5,5,5" VerticalOptions="FillAndExpand">
+            <ActivityIndicator
+                         x:Name="emailspinner"
+                           IsRunning="true"
+                    IsVisible="False"
+                           Color="Red" />
+            <Label Text="New Email"
+                           FontSize="12"
+                           Margin="30,0,0,0"
+                           />
+            <Entry Text=""
+                           FontSize="13"
+                           TextColor="Black"
+                           Opacity="0.8"
+                           Margin="30,0,30,0"
+                                x:Name="Email">
+            </Entry>
+            <Label Text=""
+                           FontSize="9"
+                                   Margin="35,0,30,0"
+                                   TextColor="Red"
+                               x:Name="emailerror"
+                          />
+            <Button Text="Continue" Margin="10"
+                    BackgroundColor="#3498db"
+                    TextColor="#fff"
+                    Command=""
+                    Clicked="email_Clicked"/>
+        </StackLayout>
+
+    </ContentPage>
+</TabbedPage>

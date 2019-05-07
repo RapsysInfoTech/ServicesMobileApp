@@ -36,6 +36,7 @@ namespace ServicesProvider
                 PhoneNumber = phonenumer.Text,
                 Sex = geneder             
             };
+            spinner.IsVisible = true;
             HttpResponseMessage response;
             using (var client = new HttpClient())
             {
@@ -43,6 +44,7 @@ namespace ServicesProvider
                    "http://172.107.175.25/umbraco/api/MembersApi/add",
                     new StringContent(JsonConvert.SerializeObject(newmember), Encoding.UTF8, "application/json"));
             }
+            spinner.IsVisible = false;
             if (!response.IsSuccessStatusCode)
             {
                 await DisplayAlert("Error", "Error From Server", "Close");
@@ -54,7 +56,16 @@ namespace ServicesProvider
                 if (responseBody.error_code == 0)
                 {
                     await DisplayAlert("success", "User Added!", "Close");
-                    await Navigation.PushAsync(new NavigationPage(new LoginPage()));
+                    var user = JsonConvert.DeserializeObject<MemberResponseobject>(parsedResponse).desc;
+                    Application.Current.Properties["ID"] = user.Id;
+                    Application.Current.Properties["FullName"] = user.FullName;
+                    Application.Current.Properties["PhoneNumber"] = user.PhoneNumber;
+                    Application.Current.Properties["Email"] = user.Email;
+                    Application.Current.Properties["Sex"] = user.Sex;
+                    Application.Current.Properties["MemberTypeAlias"] = user.MemberTypeAlias;
+                    Application.Current.Properties["Password"] = user.Password;
+                    Application.Current.Properties["Address"] = user.Address;
+                    Device.BeginInvokeOnMainThread(() => App.Current.MainPage = new NavigationPage(new HomePage()));
                 }
                 else
                 {
