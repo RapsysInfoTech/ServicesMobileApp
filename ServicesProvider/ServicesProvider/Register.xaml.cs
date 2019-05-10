@@ -24,6 +24,9 @@ namespace ServicesProvider
 
         async private void Button_Clicked(object sender, EventArgs e)
         {
+            if (spinner.IsVisible)
+                return;
+
             if (!await validate())
             { return; }
             var newmember = new AddMemberDto {

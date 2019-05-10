@@ -9,11 +9,7 @@
 
         <ScrollView x:Name="scroll">
             <StackLayout VerticalOptions="FillAndExpand">
-                <ActivityIndicator
-                         x:Name="spinner"
-                           IsRunning="true"
-                    IsVisible="False"
-                           Color="Red" />
+               
                 <Frame HasShadow="True"
                    Margin="10">
                 <StackLayout>
@@ -141,7 +137,12 @@
                           />
                     </StackLayout>
             </Frame>
-            <Button Text="Continue" Margin="10"
+                <ActivityIndicator
+                         x:Name="spinner"
+                           IsRunning="true"
+                    IsVisible="False"
+                           Color="Red" />
+                <Button Text="Continue" Margin="10"
                     BackgroundColor="#3498db"
                     TextColor="#fff"
                     Command=""
