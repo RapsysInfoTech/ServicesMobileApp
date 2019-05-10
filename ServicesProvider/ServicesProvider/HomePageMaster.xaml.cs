@@ -23,22 +23,29 @@ namespace ServicesProvider
 
             BindingContext = new HomePageMasterViewModel();
             ListView = MenuItemsListView;
+
+            if (ToolbarItems.Count > 0)
+            {
+             //   DependencyService.Get<IToolbarItemBadgeService>().SetBadge(this, ToolbarItems.First(), $"{1}", Color.Red, Color.White);
+            }
+
         }
 
         class HomePageMasterViewModel : INotifyPropertyChanged
         {
             public ObservableCollection<HomePageMenuItem> MenuItems { get; set; }
-            
+
             public HomePageMasterViewModel()
             {
                 MenuItems = new ObservableCollection<HomePageMenuItem>(new[]
                 {
                     new HomePageMenuItem { Id = 0, Title = "Home" },
-                    new HomePageMenuItem { Id = 1, Title = "Account" },
+                    new HomePageMenuItem { Id = 1, Title = "Add Service" },
+                    new HomePageMenuItem { Id = 1, Title = "Account" },                
                     new HomePageMenuItem { Id = 2, Title = "Log Out" },
                 });
             }
-            
+
             #region INotifyPropertyChanged Implementation
             public event PropertyChangedEventHandler PropertyChanged;
             void OnPropertyChanged([CallerMemberName] string propertyName = "")
@@ -53,7 +60,7 @@ namespace ServicesProvider
 
         private void MenuItemsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if (e.SelectedItemIndex == 2)
+            if (e.SelectedItemIndex == 3)
             {
                 Application.Current.Properties.Remove("ID");
                 Device.BeginInvokeOnMainThread(() => App.Current.MainPage = new NavigationPage(new LoginPage()));
@@ -61,8 +68,30 @@ namespace ServicesProvider
 
             if (e.SelectedItemIndex == 1)
             {
+                Navigation.PushAsync(new NavigationPage(new AddService()));
+            }
+
+            if (e.SelectedItemIndex == 2)
+            {
                 Navigation.PushAsync(new NavigationPage(new AccountDetails()));
             }
+        }
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+
+            Navigation.PushAsync(new NavigationPage(new wishlist()));
+        }
+
+        private void Cart_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cart_Clicked_1(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new NavigationPage(new cart()));
+
         }
     }
 }

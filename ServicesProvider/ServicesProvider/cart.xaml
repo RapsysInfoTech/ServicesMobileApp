@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ServicesProvider.cart"
+             Title="My Cart">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <ListView IsPullToRefreshEnabled="False"   x:Name="services" SelectionMode="None" HasUnevenRows="False" RowHeight="150" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="5" Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                                <Image HorizontalOptions="Start" WidthRequest="100" Aspect="Fill" Source="{Binding image}"></Image>
+                                <StackLayout Margin="5"  HorizontalOptions="FillAndExpand" >
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <Label Margin="2"  TextColor="Black" HorizontalOptions="StartAndExpand" Text="{Binding Name}"></Label>
+                                        <Label Margin="2" TextColor="Gray" HorizontalOptions="End" FontSize="9" Text="{Binding FullName ,StringFormat='Owner:{0:N}'}"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <Label Margin="2" TextColor="Gray"  HorizontalOptions="Fill"  FontSize="Small"  Text="{Binding Desc}"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <Label Margin="2" TextColor="Gray"  HorizontalOptions="End"  FontSize="9" Text="{Binding phoneNumber ,StringFormat='Phone:{0:N}'}"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Spacing="1">
+                                        <Button TextColor="#fff" Margin="0" Padding="0" BackgroundColor="Red" Clicked="Button_Clicked_1" HeightRequest="30" WidthRequest="80" Command="cart" CommandParameter="{Binding Id}" Text="Remove"></Button>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button  Text="Check Out"  TextColor="#fff"
+                            BackgroundColor="#3498db"
+                            Margin="0,20,0,0" Clicked="Button_Clicked" ></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

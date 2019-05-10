@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ServicesProvider.ServicesList"
+             Title="Explore Services"
+             >
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <ActivityIndicator
+                         x:Name="spinner"
+                           IsRunning="true"
+                    IsVisible="False"
+                           Color="Red" />
+            <SearchBar Placeholder="Search ..." TextChanged="SearchBar_TextChanged" ></SearchBar>
+            <ListView IsPullToRefreshEnabled="True"  Refreshing="Services_Refreshing" x:Name="services" SelectionMode="None" HasUnevenRows="False" RowHeight="150" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="5" Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                                <Image HorizontalOptions="Start" WidthRequest="100" Aspect="Fill" Source="{Binding image}"></Image>
+                                <StackLayout Margin="5"  HorizontalOptions="FillAndExpand" >
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <Label Margin="2"  TextColor="Black" HorizontalOptions="StartAndExpand" Text="{Binding Name}"></Label>
+                                        <Label Margin="2" TextColor="Gray" HorizontalOptions="End" FontSize="9" Text="{Binding FullName ,StringFormat='Owner:{0:N}'}"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <Label Margin="2" TextColor="Gray"  HorizontalOptions="Fill"  FontSize="Small"  Text="{Binding Desc}"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <Label Margin="2" TextColor="Gray"  HorizontalOptions="End"  FontSize="9" Text="{Binding phoneNumber ,StringFormat='Phone:{0:N}'}"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Spacing="1">
+                                        <Button TextColor="#fff" Margin="0" Padding="0" BackgroundColor="#3498db"  HeightRequest="30" WidthRequest="60" Clicked="Button_Clicked" Command="cart" CommandParameter="{Binding Id}" Text="Add"></Button>
+                                        <Button TextColor="#fff" Margin="0" Padding="0" BackgroundColor="#3498db"  HeightRequest="30" WidthRequest="60" Clicked="wishlist_Clicked" Command="Wihlist"  CommandParameter="{Binding Id}" Text="Wihlist"></Button>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
