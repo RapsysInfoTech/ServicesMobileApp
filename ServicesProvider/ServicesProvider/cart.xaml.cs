@@ -45,6 +45,11 @@ namespace ServicesProvider
        async private void Button_Clicked(object sender, EventArgs e)
         {
             var userid = Application.Current.Properties["ID"].ToString();
+            if (!Application.Current.Properties.ContainsKey("cart." + userid))
+            {
+                return;
+            }
+               
             if (string.IsNullOrEmpty(Application.Current.Properties["cart." + userid].ToString()))
             {
                 return;
