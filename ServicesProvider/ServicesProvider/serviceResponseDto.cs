@@ -12,6 +12,7 @@ namespace ServicesProvider
         public string Desc { get; set; }
         public string image { get; set; }
         public string FullName { get; set; }
+        public string UserId { get; set; }
         public string phoneNumber { get; set; }
     }
 }

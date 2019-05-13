@@ -106,6 +106,7 @@ namespace ServicesProvider
                 Name = Servicename.Text,
                 FullName = Application.Current.Properties["FullName"].ToString(),
                 phoneNumber = Application.Current.Properties["PhoneNumber"].ToString(),
+                UserId = Application.Current.Properties["ID"].ToString()
             };
             spinner.IsVisible = true;
             HttpResponseMessage response;
